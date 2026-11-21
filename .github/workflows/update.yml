@@ -1,0 +1,32 @@
+name: Update MLB Gamebook Dashboard
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"
+permissions:
+  contents: write
+concurrency:
+  group: mlb-gamebooks
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Check official MLB games
+        run: python monitor.py
+      - name: Publish game availability
+        run: |
+          if [[ -n "$(git status --porcelain gamebooks.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add gamebooks.json
+            git commit -m "Update MLB game reports"
+            git push
+          fi
