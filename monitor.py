@@ -15,7 +15,7 @@ HEADERS={"User-Agent":"MLBGamebookDashboard/1.0","Accept":"application/json"}
 def main():
     logging.basicConfig(level=logging.INFO,format="%(levelname)s %(message)s")
     now=datetime.now(ET)
-    if now.month not in (2,3,4,5,6,7,8,9,10,11):
+    if now.month not in (2,3,4,5,6,7,8,9,10):
         OUT.write_text(json.dumps({"window_label":"Offseason","updated_at":datetime.now(timezone.utc).isoformat(),"offseason":True,"games":[]},indent=2)+"\n")
         LOG.info("Offseason: skipping MLB schedule checks")
         return
