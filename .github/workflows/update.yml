@@ -2,7 +2,7 @@ name: Update MLB Gamebook Dashboard
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "14,29,44,59 * * * *"
 permissions:
   contents: write
 concurrency:
