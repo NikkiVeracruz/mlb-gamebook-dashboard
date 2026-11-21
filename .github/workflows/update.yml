@@ -21,12 +21,14 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Check official MLB games
         run: python monitor.py
+      - name: Update historical archive
+        run: python archive.py
       - name: Publish game availability
         run: |
-          if [[ -n "$(git status --porcelain gamebooks.json)" ]]; then
+          if [[ -n "$(git status --porcelain gamebooks.json archive.json)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add gamebooks.json
+            git add gamebooks.json archive.json
             git commit -m "Update MLB game reports"
             git push
           fi
