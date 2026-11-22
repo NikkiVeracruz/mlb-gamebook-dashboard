@@ -1,6 +1,446 @@
 {
-  "updated_at": "2026-11-22T02:49:35.089178+00:00",
+  "updated_at": "2026-11-22T03:32:23.008630+00:00",
   "games": [
+    {
+      "id": "849799",
+      "date": "2026-10-28",
+      "label": "Milwaukee Brewers @ Tampa Bay Rays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849799/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849799/play-by-play"
+    },
+    {
+      "id": "849803",
+      "date": "2026-10-27",
+      "label": "Milwaukee Brewers @ Tampa Bay Rays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849803/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849803/play-by-play"
+    },
+    {
+      "id": "849804",
+      "date": "2026-10-26",
+      "label": "Milwaukee Brewers @ Tampa Bay Rays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849804/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849804/play-by-play"
+    },
+    {
+      "id": "849802",
+      "date": "2026-10-24",
+      "label": "Tampa Bay Rays @ Milwaukee Brewers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849802/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849802/play-by-play"
+    },
+    {
+      "id": "849805",
+      "date": "2026-10-23",
+      "label": "Tampa Bay Rays @ Milwaukee Brewers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849805/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849805/play-by-play"
+    },
+    {
+      "id": "849815",
+      "date": "2026-10-19",
+      "label": "Cleveland Guardians @ Tampa Bay Rays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849815/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849815/play-by-play"
+    },
+    {
+      "id": "849817",
+      "date": "2026-10-18",
+      "label": "Tampa Bay Rays @ Cleveland Guardians",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849817/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849817/play-by-play"
+    },
+    {
+      "id": "849816",
+      "date": "2026-10-17",
+      "label": "Tampa Bay Rays @ Cleveland Guardians",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849816/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849816/play-by-play"
+    },
+    {
+      "id": "849818",
+      "date": "2026-10-15",
+      "label": "Tampa Bay Rays @ Cleveland Guardians",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849818/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849818/play-by-play"
+    },
+    {
+      "id": "849810",
+      "date": "2026-10-15",
+      "label": "Milwaukee Brewers @ Los Angeles Dodgers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849810/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849810/play-by-play"
+    },
+    {
+      "id": "849811",
+      "date": "2026-10-14",
+      "label": "Milwaukee Brewers @ Los Angeles Dodgers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849811/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849811/play-by-play"
+    },
+    {
+      "id": "849813",
+      "date": "2026-10-13",
+      "label": "Cleveland Guardians @ Tampa Bay Rays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849813/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849813/play-by-play"
+    },
+    {
+      "id": "849812",
+      "date": "2026-10-12",
+      "label": "Los Angeles Dodgers @ Milwaukee Brewers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849812/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849812/play-by-play"
+    },
+    {
+      "id": "849820",
+      "date": "2026-10-12",
+      "label": "Cleveland Guardians @ Tampa Bay Rays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849820/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849820/play-by-play"
+    },
+    {
+      "id": "849809",
+      "date": "2026-10-11",
+      "label": "Los Angeles Dodgers @ Milwaukee Brewers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849809/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849809/play-by-play"
+    },
+    {
+      "id": "849831",
+      "date": "2026-10-10",
+      "label": "Chicago White Sox @ Cleveland Guardians",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849831/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849831/play-by-play"
+    },
+    {
+      "id": "849832",
+      "date": "2026-10-08",
+      "label": "Cleveland Guardians @ Chicago White Sox",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849832/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849832/play-by-play"
+    },
+    {
+      "id": "849838",
+      "date": "2026-10-07",
+      "label": "Tampa Bay Rays @ New York Yankees",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849838/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849838/play-by-play"
+    },
+    {
+      "id": "849827",
+      "date": "2026-10-07",
+      "label": "Milwaukee Brewers @ San Diego Padres",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849827/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849827/play-by-play"
+    },
+    {
+      "id": "849822",
+      "date": "2026-10-07",
+      "label": "Los Angeles Dodgers @ Atlanta Braves",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849822/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849822/play-by-play"
+    },
+    {
+      "id": "849833",
+      "date": "2026-10-07",
+      "label": "Cleveland Guardians @ Chicago White Sox",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849833/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849833/play-by-play"
+    },
+    {
+      "id": "849826",
+      "date": "2026-10-06",
+      "label": "Milwaukee Brewers @ San Diego Padres",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849826/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849826/play-by-play"
+    },
+    {
+      "id": "849819",
+      "date": "2026-10-06",
+      "label": "Los Angeles Dodgers @ Atlanta Braves",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849819/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849819/play-by-play"
+    },
+    {
+      "id": "849839",
+      "date": "2026-10-05",
+      "label": "New York Yankees @ Tampa Bay Rays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849839/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849839/play-by-play"
+    },
+    {
+      "id": "849834",
+      "date": "2026-10-05",
+      "label": "Chicago White Sox @ Cleveland Guardians",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849834/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849834/play-by-play"
+    },
+    {
+      "id": "849825",
+      "date": "2026-10-04",
+      "label": "San Diego Padres @ Milwaukee Brewers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849825/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849825/play-by-play"
+    },
+    {
+      "id": "849823",
+      "date": "2026-10-04",
+      "label": "Atlanta Braves @ Los Angeles Dodgers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849823/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849823/play-by-play"
+    },
+    {
+      "id": "849830",
+      "date": "2026-10-03",
+      "label": "San Diego Padres @ Milwaukee Brewers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849830/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849830/play-by-play"
+    },
+    {
+      "id": "849835",
+      "date": "2026-10-03",
+      "label": "New York Yankees @ Tampa Bay Rays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849835/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849835/play-by-play"
+    },
+    {
+      "id": "849829",
+      "date": "2026-10-03",
+      "label": "Chicago White Sox @ Cleveland Guardians",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849829/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849829/play-by-play"
+    },
+    {
+      "id": "849828",
+      "date": "2026-10-03",
+      "label": "Atlanta Braves @ Los Angeles Dodgers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849828/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849828/play-by-play"
+    },
+    {
+      "id": "849844",
+      "date": "2026-10-01",
+      "label": "Philadelphia Phillies @ Atlanta Braves",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849844/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849844/play-by-play"
+    },
+    {
+      "id": "849841",
+      "date": "2026-09-30",
+      "label": "Philadelphia Phillies @ Atlanta Braves",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849841/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849841/play-by-play"
+    },
+    {
+      "id": "849846",
+      "date": "2026-09-30",
+      "label": "Chicago White Sox @ Houston Astros",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849846/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849846/play-by-play"
+    },
+    {
+      "id": "849842",
+      "date": "2026-09-30",
+      "label": "Chicago Cubs @ San Diego Padres",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849842/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849842/play-by-play"
+    },
+    {
+      "id": "849848",
+      "date": "2026-09-30",
+      "label": "Boston Red Sox @ New York Yankees",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849848/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849848/play-by-play"
+    },
+    {
+      "id": "849845",
+      "date": "2026-09-29",
+      "label": "Philadelphia Phillies @ Atlanta Braves",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849845/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849845/play-by-play"
+    },
+    {
+      "id": "849849",
+      "date": "2026-09-29",
+      "label": "Chicago White Sox @ Houston Astros",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849849/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849849/play-by-play"
+    },
+    {
+      "id": "849843",
+      "date": "2026-09-29",
+      "label": "Chicago Cubs @ San Diego Padres",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849843/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849843/play-by-play"
+    },
+    {
+      "id": "849851",
+      "date": "2026-09-29",
+      "label": "Boston Red Sox @ New York Yankees",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/849851/box-score",
+      "plays_url": "https://www.mlb.com/gameday/849851/play-by-play"
+    },
+    {
+      "id": "823650",
+      "date": "2026-09-27",
+      "label": "Texas Rangers @ Minnesota Twins",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/823650/box-score",
+      "plays_url": "https://www.mlb.com/gameday/823650/play-by-play"
+    },
+    {
+      "id": "823408",
+      "date": "2026-09-27",
+      "label": "Tampa Bay Rays @ Philadelphia Phillies",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/823408/box-score",
+      "plays_url": "https://www.mlb.com/gameday/823408/play-by-play"
+    },
+    {
+      "id": "823731",
+      "date": "2026-09-27",
+      "label": "St. Louis Cardinals @ Milwaukee Brewers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/823731/box-score",
+      "plays_url": "https://www.mlb.com/gameday/823731/play-by-play"
+    },
+    {
+      "id": "824217",
+      "date": "2026-09-27",
+      "label": "Pittsburgh Pirates @ Detroit Tigers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/824217/box-score",
+      "plays_url": "https://www.mlb.com/gameday/824217/play-by-play"
+    },
+    {
+      "id": "822679",
+      "date": "2026-09-27",
+      "label": "New York Mets @ Washington Nationals",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/822679/box-score",
+      "plays_url": "https://www.mlb.com/gameday/822679/play-by-play"
+    },
+    {
+      "id": "823164",
+      "date": "2026-09-27",
+      "label": "Los Angeles Dodgers @ San Francisco Giants",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/823164/box-score",
+      "plays_url": "https://www.mlb.com/gameday/823164/play-by-play"
+    },
+    {
+      "id": "823084",
+      "date": "2026-09-27",
+      "label": "Los Angeles Angels @ Seattle Mariners",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/823084/box-score",
+      "plays_url": "https://www.mlb.com/gameday/823084/play-by-play"
+    },
+    {
+      "id": "824948",
+      "date": "2026-09-27",
+      "label": "Houston Astros @ Athletics",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/824948/box-score",
+      "plays_url": "https://www.mlb.com/gameday/824948/play-by-play"
+    },
+    {
+      "id": "824542",
+      "date": "2026-09-27",
+      "label": "Colorado Rockies @ Chicago White Sox",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/824542/box-score",
+      "plays_url": "https://www.mlb.com/gameday/824542/play-by-play"
+    },
+    {
+      "id": "824055",
+      "date": "2026-09-27",
+      "label": "Cleveland Guardians @ Kansas City Royals",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/824055/box-score",
+      "plays_url": "https://www.mlb.com/gameday/824055/play-by-play"
+    },
+    {
+      "id": "822761",
+      "date": "2026-09-27",
+      "label": "Cincinnati Reds @ Toronto Blue Jays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/822761/box-score",
+      "plays_url": "https://www.mlb.com/gameday/822761/play-by-play"
+    },
+    {
+      "id": "824705",
+      "date": "2026-09-27",
+      "label": "Chicago Cubs @ Boston Red Sox",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/824705/box-score",
+      "plays_url": "https://www.mlb.com/gameday/824705/play-by-play"
+    },
+    {
+      "id": "823490",
+      "date": "2026-09-27",
+      "label": "Baltimore Orioles @ New York Yankees",
+      "status": "Cancelled",
+      "box_url": "https://www.mlb.com/gameday/823490/box-score",
+      "plays_url": "https://www.mlb.com/gameday/823490/play-by-play"
+    },
+    {
+      "id": "823814",
+      "date": "2026-09-27",
+      "label": "Atlanta Braves @ Miami Marlins",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/823814/box-score",
+      "plays_url": "https://www.mlb.com/gameday/823814/play-by-play"
+    },
+    {
+      "id": "823246",
+      "date": "2026-09-27",
+      "label": "Arizona Diamondbacks @ San Diego Padres",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/823246/box-score",
+      "plays_url": "https://www.mlb.com/gameday/823246/play-by-play"
+    },
     {
       "id": "823653",
       "date": "2026-09-26",
