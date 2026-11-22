@@ -1,6 +1,318 @@
 {
-  "updated_at": "2026-11-21T23:32:47.927290+00:00",
+  "updated_at": "2026-11-22T00:17:23.207538+00:00",
   "games": [
+    {
+      "id": "813024",
+      "date": "2025-11-01",
+      "label": "Los Angeles Dodgers @ Toronto Blue Jays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813024/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813024/play-by-play"
+    },
+    {
+      "id": "813025",
+      "date": "2025-10-31",
+      "label": "Los Angeles Dodgers @ Toronto Blue Jays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813025/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813025/play-by-play"
+    },
+    {
+      "id": "813022",
+      "date": "2025-10-29",
+      "label": "Toronto Blue Jays @ Los Angeles Dodgers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813022/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813022/play-by-play"
+    },
+    {
+      "id": "813023",
+      "date": "2025-10-28",
+      "label": "Toronto Blue Jays @ Los Angeles Dodgers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813023/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813023/play-by-play"
+    },
+    {
+      "id": "813032",
+      "date": "2025-10-27",
+      "label": "Toronto Blue Jays @ Los Angeles Dodgers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813032/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813032/play-by-play"
+    },
+    {
+      "id": "813026",
+      "date": "2025-10-25",
+      "label": "Los Angeles Dodgers @ Toronto Blue Jays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813026/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813026/play-by-play"
+    },
+    {
+      "id": "813027",
+      "date": "2025-10-24",
+      "label": "Los Angeles Dodgers @ Toronto Blue Jays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813027/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813027/play-by-play"
+    },
+    {
+      "id": "813037",
+      "date": "2025-10-20",
+      "label": "Seattle Mariners @ Toronto Blue Jays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813037/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813037/play-by-play"
+    },
+    {
+      "id": "813038",
+      "date": "2025-10-19",
+      "label": "Seattle Mariners @ Toronto Blue Jays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813038/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813038/play-by-play"
+    },
+    {
+      "id": "813039",
+      "date": "2025-10-17",
+      "label": "Toronto Blue Jays @ Seattle Mariners",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813039/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813039/play-by-play"
+    },
+    {
+      "id": "813031",
+      "date": "2025-10-17",
+      "label": "Milwaukee Brewers @ Los Angeles Dodgers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813031/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813031/play-by-play"
+    },
+    {
+      "id": "813035",
+      "date": "2025-10-16",
+      "label": "Toronto Blue Jays @ Seattle Mariners",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813035/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813035/play-by-play"
+    },
+    {
+      "id": "813033",
+      "date": "2025-10-16",
+      "label": "Milwaukee Brewers @ Los Angeles Dodgers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813033/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813033/play-by-play"
+    },
+    {
+      "id": "813043",
+      "date": "2025-10-15",
+      "label": "Toronto Blue Jays @ Seattle Mariners",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813043/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813043/play-by-play"
+    },
+    {
+      "id": "813034",
+      "date": "2025-10-14",
+      "label": "Los Angeles Dodgers @ Milwaukee Brewers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813034/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813034/play-by-play"
+    },
+    {
+      "id": "813044",
+      "date": "2025-10-13",
+      "label": "Seattle Mariners @ Toronto Blue Jays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813044/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813044/play-by-play"
+    },
+    {
+      "id": "813036",
+      "date": "2025-10-13",
+      "label": "Los Angeles Dodgers @ Milwaukee Brewers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813036/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813036/play-by-play"
+    },
+    {
+      "id": "813040",
+      "date": "2025-10-12",
+      "label": "Seattle Mariners @ Toronto Blue Jays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813040/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813040/play-by-play"
+    },
+    {
+      "id": "813046",
+      "date": "2025-10-11",
+      "label": "Chicago Cubs @ Milwaukee Brewers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813046/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813046/play-by-play"
+    },
+    {
+      "id": "813054",
+      "date": "2025-10-10",
+      "label": "Detroit Tigers @ Seattle Mariners",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813054/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813054/play-by-play"
+    },
+    {
+      "id": "813042",
+      "date": "2025-10-09",
+      "label": "Philadelphia Phillies @ Los Angeles Dodgers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813042/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813042/play-by-play"
+    },
+    {
+      "id": "813050",
+      "date": "2025-10-09",
+      "label": "Milwaukee Brewers @ Chicago Cubs",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813050/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813050/play-by-play"
+    },
+    {
+      "id": "813060",
+      "date": "2025-10-08",
+      "label": "Toronto Blue Jays @ New York Yankees",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813060/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813060/play-by-play"
+    },
+    {
+      "id": "813055",
+      "date": "2025-10-08",
+      "label": "Seattle Mariners @ Detroit Tigers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813055/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813055/play-by-play"
+    },
+    {
+      "id": "813041",
+      "date": "2025-10-08",
+      "label": "Philadelphia Phillies @ Los Angeles Dodgers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813041/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813041/play-by-play"
+    },
+    {
+      "id": "813049",
+      "date": "2025-10-08",
+      "label": "Milwaukee Brewers @ Chicago Cubs",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813049/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813049/play-by-play"
+    },
+    {
+      "id": "813061",
+      "date": "2025-10-07",
+      "label": "Toronto Blue Jays @ New York Yankees",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813061/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813061/play-by-play"
+    },
+    {
+      "id": "813056",
+      "date": "2025-10-07",
+      "label": "Seattle Mariners @ Detroit Tigers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813056/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813056/play-by-play"
+    },
+    {
+      "id": "813052",
+      "date": "2025-10-06",
+      "label": "Los Angeles Dodgers @ Philadelphia Phillies",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813052/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813052/play-by-play"
+    },
+    {
+      "id": "813048",
+      "date": "2025-10-06",
+      "label": "Chicago Cubs @ Milwaukee Brewers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813048/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813048/play-by-play"
+    },
+    {
+      "id": "813062",
+      "date": "2025-10-05",
+      "label": "New York Yankees @ Toronto Blue Jays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813062/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813062/play-by-play"
+    },
+    {
+      "id": "813057",
+      "date": "2025-10-05",
+      "label": "Detroit Tigers @ Seattle Mariners",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813057/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813057/play-by-play"
+    },
+    {
+      "id": "813063",
+      "date": "2025-10-04",
+      "label": "New York Yankees @ Toronto Blue Jays",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813063/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813063/play-by-play"
+    },
+    {
+      "id": "813051",
+      "date": "2025-10-04",
+      "label": "Los Angeles Dodgers @ Philadelphia Phillies",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813051/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813051/play-by-play"
+    },
+    {
+      "id": "813058",
+      "date": "2025-10-04",
+      "label": "Detroit Tigers @ Seattle Mariners",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813058/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813058/play-by-play"
+    },
+    {
+      "id": "813047",
+      "date": "2025-10-04",
+      "label": "Chicago Cubs @ Milwaukee Brewers",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813047/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813047/play-by-play"
+    },
+    {
+      "id": "813059",
+      "date": "2025-10-02",
+      "label": "San Diego Padres @ Chicago Cubs",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813059/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813059/play-by-play"
+    },
+    {
+      "id": "813073",
+      "date": "2025-10-02",
+      "label": "Detroit Tigers @ Cleveland Guardians",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813073/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813073/play-by-play"
+    },
+    {
+      "id": "813065",
+      "date": "2025-10-02",
+      "label": "Boston Red Sox @ New York Yankees",
+      "status": "Final",
+      "box_url": "https://www.mlb.com/gameday/813065/box-score",
+      "plays_url": "https://www.mlb.com/gameday/813065/play-by-play"
+    },
     {
       "id": "813064",
       "date": "2025-10-01",
