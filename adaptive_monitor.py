@@ -127,7 +127,7 @@ def fetch_days(league, today, session=None, horizon=LOOKAHEAD):
             response = session.get(
                 "https://statsapi.mlb.com/api/v1/schedule",
                 params={"sportId": 1, "date": day.isoformat(),
-                        "gameTypes": "S,R,F,D,L,W"},
+                        "gameTypes": "S,R,F,D,L,W,A,E"},
                 timeout=25,
             )
             response.raise_for_status()
