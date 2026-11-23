@@ -12,6 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   recover:
+    if: ${{ vars.ENABLE_HISTORICAL_BACKFILL == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 24
     steps:
