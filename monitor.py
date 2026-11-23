@@ -5,6 +5,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 import requests
+import archive as archive_module
+from three_day_window import three_days, archive_outgoing_games, scheduled_games_in_window
 
 ET=ZoneInfo("America/New_York")
 OUT=Path("gamebooks.json")
@@ -29,13 +31,18 @@ def write_if_changed(path, payload):
 
 def main():
     logging.basicConfig(level=logging.INFO,format="%(levelname)s %(message)s")
+    # Never remove an outgoing MLB game until its existing record is saved.
+    days=three_days()
+    archive_outgoing_games(OUT, archive_module.ARCHIVE, days, archive_module)
     now=datetime.now(ET)
-    if now.month not in (2,3,4,5,6,7,8,9,10) and not __import__("adaptive_monitor").should_poll("MLB"):
-        write_if_changed(OUT, {"window_label":"Offseason","updated_at":datetime.now(timezone.utc).isoformat(),"offseason":True,"games":[]})
-        LOG.info("Offseason: skipping MLB schedule checks")
+    if (now.month not in (2,3,4,5,6,7,8,9,10)
+            and not scheduled_games_in_window("league-calendar.json", days)
+            and not __import__("adaptive_monitor").should_poll("MLB")):
+        write_if_changed(OUT, {"window_label":f"{days[0]:%b %d, %Y} – {days[-1]:%b %d, %Y} (ET; 3 AM rollover)",
+                              "window_dates":[d.isoformat() for d in days],
+                              "updated_at":datetime.now(timezone.utc).isoformat(),"offseason":True,"games":[]})
+        LOG.info("Offseason: no MLB games scheduled in rolling three-date window")
         return
-    today=(now-timedelta(hours=3)).date()
-    days=[today-timedelta(days=1),today]
     session=requests.Session()
     session.headers.update(HEADERS)
     games=[];failures=[]
@@ -82,11 +89,28 @@ def main():
             failures.append("partial schedule: " + ", ".join(g["date"] for g in missing))
     except (OSError, ValueError, KeyError, TypeError):
         pass
+    # Retain previously verified MLB-hosted links for a game if a partial
+    # upstream response temporarily omits them; never carry links between IDs.
+    try:
+        old_data=json.loads(OUT.read_text(encoding="utf-8"))
+        previous={str(g.get("id")):g for g in old_data.get("games",[])
+                  if isinstance(g,dict) and g.get("id")}
+        for game in games:
+            old=previous.get(str(game.get("id")))
+            if not old or old.get("date")!=game.get("date"):continue
+            prefix="https://www.mlb.com/gameday/"+str(game["id"])
+            for key,suffix in (("box_url","/box-score"),("plays_url","/play-by-play")):
+                if not game.get(key) and old.get(key)==prefix+suffix:
+                    game[key]=old[key]
+    except (OSError,ValueError,TypeError,KeyError):
+        pass
     games.sort(key=lambda g:(g["date"],g["label"],g["id"]))
-    data={"window_label":f"{days[0]:%b %d, %Y} – {days[1]:%b %d, %Y} (ET; 3 AM rollover)","updated_at":datetime.now(timezone.utc).isoformat(),"games":games}
+    data={"window_label":f"{days[0]:%b %d, %Y} – {days[-1]:%b %d, %Y} (ET; 3 AM rollover)",
+          "window_dates":[d.isoformat() for d in days],
+          "updated_at":datetime.now(timezone.utc).isoformat(),"games":games}
     if failures:data["warning"]="MLB schedule temporarily unavailable for "+", ".join(failures)
     write_if_changed(OUT, data)
     LOG.info("Published %d MLB games",len(games))
-    if len(failures)==2:raise RuntimeError("Both MLB schedule requests failed")
+    if len(failures)==len(days):raise RuntimeError("All three MLB schedule requests failed")
 
 if __name__=="__main__":main()
