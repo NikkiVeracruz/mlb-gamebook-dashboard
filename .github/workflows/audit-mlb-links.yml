@@ -1,0 +1,44 @@
+name: Verify 2026 MLB Gameday statistics links
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/audit-mlb-links.yml
+  schedule:
+    - cron: "27 5 * * *"
+      timezone: "America/New_York"
+permissions:
+  contents: write
+concurrency:
+  group: mlb-gamebooks
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Verify game ID, box-score and play-by-play structure from MLB Stats API
+        run: python audit_mlb_links.py --limit 250
+      - name: Ensure archive records and links are unchanged
+        run: python tests/archive_integrity_gate.py archive.json
+      - name: Publish verified and unresolved report statuses for future follow-up
+        run: |
+          if [[ -n "$(git status --porcelain link-review.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add link-review.json
+            git commit -m "Record official MLB game-report validation evidence"
+            for attempt in 1 2 3 4; do
+              if git push; then exit 0; fi
+              git pull --rebase -X theirs origin main
+              sleep 2
+            done
+            exit 1
+          fi
+          echo "MLB link verification already current"

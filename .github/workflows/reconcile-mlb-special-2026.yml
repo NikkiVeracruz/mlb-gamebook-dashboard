@@ -1,0 +1,48 @@
+name: Reconcile 2026 MLB All-Star and exhibition archive coverage
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/reconcile-mlb-special-2026.yml
+permissions:
+  contents: write
+concurrency:
+  group: mlb-gamebooks
+  cancel-in-progress: false
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Test official MLB schedule categories and archive safety
+        run: |
+          python -m unittest discover -s tests -p 'test_mlb_policy.py' -v
+          python -m unittest discover -s tests -p 'test_archive_safety.py' -v
+      - name: Recover 2026 exhibition and All-Star game IDs without replacing older records
+        run: python reconcile_mlb_2026.py
+      - name: Verify original archive IDs and links remain
+        run: python tests/archive_integrity_gate.py archive.json
+      - name: Publish only added verified MLB fixtures and review metadata
+        run: |
+          files="archive.json special-game-review.json"
+          if [[ -n "$(git status --porcelain $files)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add $files
+            git diff --cached --check
+            git commit -m "Reconcile official 2026 MLB special games"
+            for attempt in 1 2 3 4; do
+              if git push; then exit 0; fi
+              git pull --rebase -X theirs origin main
+              python tests/archive_integrity_gate.py archive.json --baseline-ref FETCH_HEAD
+              sleep 2
+            done
+            exit 1
+          fi
+          echo "No newly discovered MLB special fixtures"
