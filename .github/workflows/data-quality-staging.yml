@@ -28,6 +28,7 @@ jobs:
       - name: Test repaired sources, official links, and archive protection
         run: |
           python -m unittest discover -s tests -p 'test_mlb_policy.py' -v
+          python -m unittest discover -s tests -p 'test_mlb_link_audit.py' -v
           python -m unittest discover -s tests -p 'test_adaptive_monitor.py' -v
           python -m unittest discover -s tests -p 'test_archive_safety.py' -v
       - name: Assert no existing archive or progress was modified
