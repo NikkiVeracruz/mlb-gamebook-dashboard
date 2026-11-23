@@ -29,7 +29,11 @@ def audit(archive_path=ARCHIVE, review_path=REVIEW, limit=BATCH, executor_class=
     data=archive.load_payload(Path(archive_path), "MLB historical archive for link review")
     reviewed={}
     if Path(review_path).exists():
-        reviewed=json.loads(Path(review_path).read_text(encoding="utf-8")).get("games",{})
+        previous=json.loads(Path(review_path).read_text(encoding="utf-8"))
+        # Prior probe used the wrong MLB feed version. Its unsuccessful checks
+        # are not evidence that the game statistics are unavailable.
+        if previous.get("validator_version")==2:
+            reviewed=previous.get("games",{})
     games={str(g["id"]):g for g in data["games"]
            if (g.get("id") and str(g.get("id")).isdigit()
                and "2026-01-01" <= g.get("date","") <= date.today().isoformat()
@@ -46,7 +50,7 @@ def audit(archive_path=ARCHIVE, review_path=REVIEW, limit=BATCH, executor_class=
             for future in as_completed(futures):
                 game_id, status=future.result()
                 reviewed[game_id]=status
-    output={"scope":"2026","games":dict(sorted(reviewed.items())),
+    output={"scope":"2026","validator_version":2,"games":dict(sorted(reviewed.items())),
             "archived_games_with_links":len(games),
             "checked":len([key for key in reviewed if key in games]),
             "verified":sum(reviewed.get(key)=="verified_api" for key in games),
