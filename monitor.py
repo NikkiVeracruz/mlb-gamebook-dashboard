@@ -6,6 +6,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 import requests
 import archive as archive_module
+from mlb_policy import game_category, official_links, validate_game_data
 from three_day_window import three_days, archive_outgoing_games, scheduled_games_in_window
 
 ET=ZoneInfo("America/New_York")
@@ -46,9 +47,15 @@ def main():
     session=requests.Session()
     session.headers.update(HEADERS)
     games=[];failures=[]
+    try:
+        prior = json.loads(OUT.read_text(encoding="utf-8"))
+        verified_cache = {str(g.get("id")):g.get("link_verification")
+                          for g in prior.get("games",[]) if isinstance(g,dict)}
+    except (OSError,ValueError):
+        verified_cache = {}
     for day in days:
         try:
-            r=session.get(API,params={"sportId":1,"date":day.isoformat(),"hydrate":"team","gameTypes":"S,R,F,D,L,W"},timeout=25)
+            r=session.get(API,params={"sportId":1,"date":day.isoformat(),"hydrate":"team","gameTypes":"S,R,F,D,L,W,A,E"},timeout=25)
             r.raise_for_status()
             for block in r.json().get("dates",[]):
                 for game in block.get("games",[]):
@@ -58,12 +65,20 @@ def main():
                     away=teams.get("away",{}).get("team",{}).get("name","Away")
                     home=teams.get("home",{}).get("team",{}).get("name","Home")
                     state=game.get("status",{}).get("detailedState","Scheduled")
-                    item={"id":str(pk),"date":day.isoformat(),"label":f"{away} @ {home}","status":state}
+                    item={"id":str(pk),"date":day.isoformat(),"label":f"{away} @ {home}",
+                          "status":state,"game_type":game.get("gameType"),
+                          "competition":game_category(game.get("gameType"))}
                     # MLB official game-specific pages. Do not claim they are PDF gamebooks.
                     if game.get("status",{}).get("abstractGameState") in ("Live","Final"):
-                        base=f"https://www.mlb.com/gameday/{pk}"
-                        item["box_url"]=base+"/box-score"
-                        item["plays_url"]=base+"/play-by-play"
+                        # Links are official MLB addresses, but their availability
+                        # is a separate, explicit verification result.
+                        item.update(official_links(pk))
+                        previous = verified_cache.get(str(pk))
+                        if previous == "verified_api":
+                            item["link_verification"] = "verified_api"
+                        else:
+                            valid,reason=validate_game_data(session,pk)
+                            item["link_verification"] = reason if valid else "needs_review:"+reason
                     games.append(item)
             LOG.info("Loaded %s",day)
         except (requests.RequestException,ValueError,KeyError):
@@ -99,6 +114,8 @@ def main():
             old=previous.get(str(game.get("id")))
             if not old or old.get("date")!=game.get("date"):continue
             prefix="https://www.mlb.com/gameday/"+str(game["id"])
+            if old.get("link_verification")=="verified_api" and game.get("link_verification")!="verified_api":
+                game["link_verification"]="verified_api"
             for key,suffix in (("box_url","/box-score"),("plays_url","/play-by-play")):
                 if not game.get(key) and old.get(key)==prefix+suffix:
                     game[key]=old[key]
