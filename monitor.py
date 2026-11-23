@@ -12,11 +12,26 @@ API="https://statsapi.mlb.com/api/v1/schedule"
 LOG=logging.getLogger("mlb-reports")
 HEADERS={"User-Agent":"MLBGamebookDashboard/1.0","Accept":"application/json"}
 
+def write_if_changed(path, payload):
+    """Publish only genuine feed changes; save successful checks separately."""
+    try:
+        prior = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        prior = {}
+    visible = lambda x: {k: v for k, v in x.items() if k != "updated_at"}
+    if visible(prior) == visible(payload):
+        LOG.info("Feed unchanged; skipped timestamp-only commit")
+        return False
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+                    encoding="utf-8")
+    return True
+
+
 def main():
     logging.basicConfig(level=logging.INFO,format="%(levelname)s %(message)s")
     now=datetime.now(ET)
     if now.month not in (2,3,4,5,6,7,8,9,10):
-        OUT.write_text(json.dumps({"window_label":"Offseason","updated_at":datetime.now(timezone.utc).isoformat(),"offseason":True,"games":[]},indent=2)+"\n")
+        write_if_changed(OUT, {"window_label":"Offseason","updated_at":datetime.now(timezone.utc).isoformat(),"offseason":True,"games":[]})
         LOG.info("Offseason: skipping MLB schedule checks")
         return
     today=(now-timedelta(hours=3)).date()
@@ -70,7 +85,7 @@ def main():
     games.sort(key=lambda g:(g["date"],g["label"],g["id"]))
     data={"window_label":f"{days[0]:%b %d, %Y} – {days[1]:%b %d, %Y} (ET; 3 AM rollover)","updated_at":datetime.now(timezone.utc).isoformat(),"games":games}
     if failures:data["warning"]="MLB schedule temporarily unavailable for "+", ".join(failures)
-    OUT.write_text(json.dumps(data,indent=2,ensure_ascii=False)+"\n")
+    write_if_changed(OUT, data)
     LOG.info("Published %d MLB games",len(games))
     if len(failures)==2:raise RuntimeError("Both MLB schedule requests failed")
 
