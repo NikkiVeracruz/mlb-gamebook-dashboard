@@ -5,6 +5,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 import requests
 from monitor import HEADERS
+from mlb_policy import game_category
 
 LEAGUE = os.environ["ARCHIVE_LEAGUE"]
 START = {"nba":"2025-09-01","nhl":"2025-09-01","mlb":"2025-02-01"}[LEAGUE]
@@ -25,7 +26,7 @@ def main():
     while day <= END and processed < BATCH and (processed == 0 or time.monotonic() - started < MAX_SECONDS):
         try:
             if LEAGUE == "mlb":
-                response=session.get("https://statsapi.mlb.com/api/v1/schedule",params={"sportId":1,"date":day.isoformat(),"hydrate":"team","gameTypes":"S,R,F,D,L,W"},timeout=25)
+                response=session.get("https://statsapi.mlb.com/api/v1/schedule",params={"sportId":1,"date":day.isoformat(),"hydrate":"team","gameTypes":"S,R,F,D,L,W,A,E"},timeout=25)
                 response.raise_for_status()
                 games=[]
                 for block in response.json().get("dates",[]):
@@ -36,10 +37,10 @@ def main():
                         away=teams.get("away",{}).get("team",{}).get("name","Away")
                         home=teams.get("home",{}).get("team",{}).get("name","Home")
                         status=game.get("status",{})
-                        g={"id":str(pk),"date":day.isoformat(),"label":f"{away} @ {home}","status":status.get("detailedState","Scheduled")}
+                        g={"id":str(pk),"date":day.isoformat(),"label":f"{away} @ {home}","status":status.get("detailedState","Scheduled"),"game_type":game.get("gameType"),"competition":game_category(game.get("gameType"))}
                         if status.get("abstractGameState") in ("Live","Final"):
                             base=f"https://www.mlb.com/gameday/{pk}"
-                            g.update(box_url=base+"/box-score",plays_url=base+"/play-by-play")
+                            g.update(box_url=base+"/box-score",plays_url=base+"/play-by-play",link_verification="not_checked")
                         games.append(g)
             elif LEAGUE == "nba":
                 games=games_on(session,day)
@@ -51,7 +52,10 @@ def main():
         for g in games:
             key=str(g.get("id") or g.get("slug") or (g.get("date"),g.get("label")))
             old=records.get(key,{})
-            records[key]={**old,**{k:v for k,v in g.items() if v is not None}}
+            fresh={k:v for k,v in g.items() if v is not None}
+            if old.get("link_verification")=="verified_api":
+                fresh.pop("link_verification",None)
+            records[key]={**old,**fresh}
         print(f"{day}: {len(games)} games; total {len(records)}")
         day+=timedelta(days=1)
         processed+=1
