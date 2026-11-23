@@ -30,7 +30,7 @@ def write_if_changed(path, payload):
 def main():
     logging.basicConfig(level=logging.INFO,format="%(levelname)s %(message)s")
     now=datetime.now(ET)
-    if now.month not in (2,3,4,5,6,7,8,9,10):
+    if now.month not in (2,3,4,5,6,7,8,9,10) and not __import__("adaptive_monitor").should_poll("MLB"):
         write_if_changed(OUT, {"window_label":"Offseason","updated_at":datetime.now(timezone.utc).isoformat(),"offseason":True,"games":[]})
         LOG.info("Offseason: skipping MLB schedule checks")
         return
