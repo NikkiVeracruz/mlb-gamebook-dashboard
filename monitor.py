@@ -70,15 +70,19 @@ def main():
                           "competition":game_category(game.get("gameType"))}
                     # MLB official game-specific pages. Do not claim they are PDF gamebooks.
                     if game.get("status",{}).get("abstractGameState") in ("Live","Final"):
-                        # Links are official MLB addresses, but their availability
-                        # is a separate, explicit verification result.
-                        item.update(official_links(pk))
+                        # Do NOT expose Gameday links before their game-specific
+                        # official statistics have actually been confirmed.
                         previous = verified_cache.get(str(pk))
                         if previous == "verified_api":
+                            item.update(official_links(pk))
                             item["link_verification"] = "verified_api"
                         else:
                             valid,reason=validate_game_data(session,pk)
-                            item["link_verification"] = reason if valid else "needs_review:"+reason
+                            if valid:
+                                item.update(official_links(pk))
+                                item["link_verification"] = "verified_api"
+                            else:
+                                item["link_verification"] = "needs_review:"+reason
                     games.append(item)
             LOG.info("Loaded %s",day)
         except (requests.RequestException,ValueError,KeyError):
@@ -117,7 +121,8 @@ def main():
             if old.get("link_verification")=="verified_api" and game.get("link_verification")!="verified_api":
                 game["link_verification"]="verified_api"
             for key,suffix in (("box_url","/box-score"),("plays_url","/play-by-play")):
-                if not game.get(key) and old.get(key)==prefix+suffix:
+                if (old.get("link_verification")=="verified_api"
+                        and not game.get(key) and old.get(key)==prefix+suffix):
                     game[key]=old[key]
     except (OSError,ValueError,TypeError,KeyError):
         pass
