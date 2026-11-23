@@ -1,0 +1,37 @@
+name: MLB official-statistics endpoint verification rehearsal
+on:
+  push:
+    branches: [staging-mlb-link-validation-fix-2026-11-23]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Offline validation and archive-integrity tests
+        run: |
+          python -m unittest discover -s tests -p 'test_mlb_policy.py' -v
+          python -m unittest discover -s tests -p 'test_mlb_link_audit.py' -v
+      - name: Check real completed game statistics from the corrected MLB endpoint
+        run: |
+          python - <<'PY'
+          import requests
+          from mlb_policy import validate_game_data
+          session=requests.Session()
+          verified=[]
+          for game_id in (822678,823443,822679):
+              valid, reason=validate_game_data(session,game_id,timeout=12)
+              print(f"Official MLB game {game_id}: valid={valid}, reason={reason}")
+              verified.append(valid)
+          if not any(verified):
+              raise SystemExit("No historical MLB game verified; endpoint needs review")
+          PY
+      - name: No current or archived game data modified
+        run: git diff --exit-code -- archive.json gamebooks.json archive-progress.json
